@@ -1,24 +1,16 @@
 [gd_scene format=3 uid="uid://cypjfggj3iyct"]
 
-[ext_resource type="Script" uid="uid://du3pm23g8sh75" path="res://Scripts/MoveObject.gd" id="1_j1p3a"]
-[ext_resource type="Texture2D" uid="uid://bsukmlwqsngsh" path="res://icon.svg" id="2_n3j30"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cku3"]
-size = Vector2(134.99998, 134.99998)
+[ext_resource type="PackedScene" uid="uid://da5gao2mueqpv" path="res://Assets/Pruebas de objetos/area_2d_(carta_de_prueba).tscn" id="1_j1p3a"]
+[ext_resource type="PackedScene" uid="uid://bc7jx4mtxw6si" path="res://Escenas/MenuPause.tscn" id="2_n3j30"]
 
 [node name="Test_gameplay" type="Node2D" unique_id=431069004]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1364219559]
+position = Vector2(96, 54)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=325645563]
-script = ExtResource("1_j1p3a")
+[node name="Area2D (Carta de Prueba)" parent="." unique_id=1247127088 instance=ExtResource("1_j1p3a")]
+position = Vector2(167, 49)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=698812367]
-position = Vector2(11.499999, -11.499999)
-scale = Vector2(0.2, 0.2)
-shape = SubResource("RectangleShape2D_2cku3")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=761567368]
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1924401501]
-position = Vector2(11.499999, -11.499999)
-scale = Vector2(0.19999999, 0.19999999)
-texture = ExtResource("2_n3j30")
+[node name="Control" parent="CanvasLayer" unique_id=265147486 instance=ExtResource("2_n3j30")]

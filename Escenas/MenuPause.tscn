@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bc7jx4mtxw6si"]
+
+[ext_resource type="Script" uid="uid://cv2r4tp8d377h" path="res://Scripts/MenuPause.gd" id="1_fccvm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhunq"]
+bg_color = Color(0.8605353, 0.48624116, 0.31899774, 1)
+
+[node name="Control" type="Control" unique_id=265147486]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fccvm")
+
+[node name="Panel" type="Panel" parent="." unique_id=1603545097]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=489584582]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -42.5
+offset_right = 38.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bhunq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1560865914]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 7
+
+[node name="Continue" type="Button" parent="PanelContainer/VBoxContainer" unique_id=376204132]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Continuar"
+
+[node name="Reboot" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1161530493]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Reiniciar"
+
+[node name="MainMenu" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1320830282]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Menu Principal"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=629453115]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Salir"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Reboot" to="." method="_on_reboot_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

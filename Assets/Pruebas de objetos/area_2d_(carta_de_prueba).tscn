@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://da5gao2mueqpv"]
+
+[ext_resource type="Script" uid="uid://du3pm23g8sh75" path="res://Scripts/MoveObject.gd" id="1_tc3rk"]
+[ext_resource type="Texture2D" uid="uid://bsukmlwqsngsh" path="res://icon.svg" id="2_53kr3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cku3"]
+size = Vector2(134.99998, 134.99998)
+
+[node name="Area2D (Carta de Prueba)" type="Area2D" unique_id=1247127088]
+script = ExtResource("1_tc3rk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=983853944]
+scale = Vector2(0.19999999, 0.19999999)
+texture = ExtResource("2_53kr3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=61180423]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_2cku3")
