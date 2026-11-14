@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Game-Small(Ludi)"
-run/main_scene="uid://cypjfggj3iyct"
+run/main_scene="uid://csls8kq5mv64l"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=192
-window/size/viewport_height=108
+window/size/viewport_width=1080
+window/size/viewport_height=1920
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"

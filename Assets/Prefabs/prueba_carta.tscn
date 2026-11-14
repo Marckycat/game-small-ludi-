@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xcg445254h8b"]
+
+[ext_resource type="Script" uid="uid://du3pm23g8sh75" path="res://Scripts/MoveObject.gd" id="1_slby7"]
+[ext_resource type="Texture2D" uid="uid://bsukmlwqsngsh" path="res://icon.svg" id="2_rq0n0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(135, 132)
+
+[node name="PruebaCarta" type="Area2D" unique_id=2063196927]
+script = ExtResource("1_slby7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=654615163]
+texture = ExtResource("2_rq0n0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1484151792]
+visible = false
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_bhunq")
