@@ -4,6 +4,7 @@ var mano
 var arrastrando := false
 var offset := Vector2.ZERO
 var tween: Tween
+var datos: CartaData
 
 
 func mover_a(pos: Vector2, rot: float = 0.0, dur: float = 0.2):
@@ -37,3 +38,10 @@ func _input(event):
 		arrastrando = false
 		if mano:
 			mano.soltar_carta(self)
+
+func configurar(d: CartaData):
+	datos = d
+	if d.textura:
+		$Sprite2D.texture = d.textura
+	$Sprite2D.modulate = d.color()
+	$EfectoCarta.text = d.texto_efecto()

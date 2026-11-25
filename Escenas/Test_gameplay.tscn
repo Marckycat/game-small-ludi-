@@ -4,9 +4,31 @@
 [ext_resource type="Script" uid="uid://b0kptk3yamqm0" path="res://Scripts/Mano.gd" id="2_2cku3"]
 [ext_resource type="PackedScene" uid="uid://bc7jx4mtxw6si" path="res://Escenas/MenuPause.tscn" id="2_n3j30"]
 [ext_resource type="Texture2D" uid="uid://bsukmlwqsngsh" path="res://icon.svg" id="4_7tuo2"]
+[ext_resource type="Script" uid="uid://bt1fd2ojbkhjn" path="res://Scripts/CartaData.gd" id="4_esatg"]
+
+[sub_resource type="Resource" id="Resource_7tuo2"]
+script = ExtResource("4_esatg")
+descripcion = "Daño a enemigo"
+metadata/_custom_type_script = "uid://bt1fd2ojbkhjn"
+
+[sub_resource type="Resource" id="Resource_esatg"]
+script = ExtResource("4_esatg")
+tipo = 1
+valor = 3
+descripcion = "Cura a Heroe"
+metadata/_custom_type_script = "uid://bt1fd2ojbkhjn"
+
+[sub_resource type="Resource" id="Resource_fmup3"]
+script = ExtResource("4_esatg")
+tipo = 2
+descripcion = "Robar Carta"
+metadata/_custom_type_script = "uid://bt1fd2ojbkhjn"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(222, 242.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
+size = Vector2(377, 329)
 
 [node name="Test_gameplay" type="Node2D" unique_id=431069004]
 
@@ -31,13 +53,15 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 40
 text = "Robar"
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1480998546]
+[node name="AVISO" type="Label" parent="CanvasLayer" unique_id=1480998546]
 visible = false
 anchors_preset = -1
 anchor_left = 0.34444445
 anchor_top = 0.29270834
 anchor_right = 0.66851854
 anchor_bottom = 0.49166667
+offset_top = -38.5
+offset_bottom = -38.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -48,15 +72,17 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Mano" type="Node2D" parent="." unique_id=214251238 node_paths=PackedStringArray("punto_mazo", "zona_descarte", "boton_robar", "mensaje_label")]
+[node name="Mano" type="Node2D" parent="." unique_id=214251238 node_paths=PackedStringArray("zona_jugar", "punto_mazo", "zona_descarte", "boton_robar", "mensaje_label")]
 position = Vector2(518, 1622)
 script = ExtResource("2_2cku3")
 carta_escena = ExtResource("1_n3j30")
+zona_jugar = NodePath("../ZonaJuego")
 punto_mazo = NodePath("../Mazo")
 zona_descarte = NodePath("../ZonaDescarte")
 separacion = 100.0
 boton_robar = NodePath("../CanvasLayer/Robar")
-mensaje_label = NodePath("../CanvasLayer/Label")
+mensaje_label = NodePath("../CanvasLayer/AVISO")
+mazo_datos = Array[ExtResource("4_esatg")]([SubResource("Resource_7tuo2"), SubResource("Resource_esatg"), SubResource("Resource_fmup3")])
 
 [node name="Mazo" type="Marker2D" parent="." unique_id=158885100]
 position = Vector2(995, 1067)
@@ -64,10 +90,6 @@ position = Vector2(995, 1067)
 [node name="Sprite2D" type="Sprite2D" parent="Mazo" unique_id=2104904724]
 position = Vector2(6, -1)
 texture = ExtResource("4_7tuo2")
-
-[node name="PruebaCarta" parent="." unique_id=2063196927 instance=ExtResource("1_n3j30")]
-visible = false
-position = Vector2(0, 790)
 
 [node name="ZonaDescarte" type="Area2D" parent="." unique_id=1740961862]
 position = Vector2(951, 217)
@@ -78,3 +100,10 @@ shape = SubResource("RectangleShape2D_bhunq")
 
 [node name="Sprite2D" type="Sprite2D" parent="ZonaDescarte" unique_id=1116403807]
 texture = ExtResource("4_7tuo2")
+
+[node name="ZonaJuego" type="Area2D" parent="." unique_id=1229294127]
+position = Vector2(518, 944)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaJuego" unique_id=1733281033]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_riqys")
